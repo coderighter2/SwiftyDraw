@@ -26,6 +26,7 @@ public struct Color : Codable {
 public enum BlendMode: String, Codable {
     case normal = "normal"
     case clear = "clear"
+    case multiply = "multiply"
     
     var cgBlendMode: CGBlendMode {
         switch self {
@@ -33,6 +34,8 @@ public enum BlendMode: String, Codable {
             return .normal
         case .clear:
             return .clear
+        case .multiply:
+            return .multiply
         }
     }
 }
