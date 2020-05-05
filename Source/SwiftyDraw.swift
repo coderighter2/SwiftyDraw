@@ -55,6 +55,7 @@ import UIKit
      */
     func swiftyDraw(didCancelDrawingIn drawingView: SwiftyDrawView, using touch: UITouch)
     
+    @available(iOS 12.1, *)
     func swiftyDraw(pencilInteractionIn drawingView: SwiftyDrawView, preference: UIPencilPreferredAction)
 }
 
