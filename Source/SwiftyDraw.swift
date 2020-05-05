@@ -54,6 +54,8 @@ import UIKit
      - Parameter view: SwiftyDrawView where touches occured.
      */
     func swiftyDraw(didCancelDrawingIn drawingView: SwiftyDrawView, using touch: UITouch)
+    
+    func swiftyDraw(pencilInteractionIn drawingView: SwiftyDrawView, preference: UIPencilPreferredAction)
 }
 
 /// UIView Subclass where touch gestures are translated into Core Graphics drawing
@@ -329,16 +331,6 @@ extension Collection {
 @available(iOS 12.1, *)
 extension SwiftyDrawView : UIPencilInteractionDelegate{
     public func pencilInteractionDidTap(_ interaction: UIPencilInteraction) {
-        let preference = UIPencilInteraction.preferredTapAction
-        if preference == .switchEraser {
-            let currentBlend = self.brush.blendMode
-            if currentBlend != .clear {
-                self.brush.blendMode = .clear
-            } else {
-                self.brush.blendMode = .normal
-            }
-        } else if preference == .switchPrevious {
-            self.brush = self.previousBrush
-        }
+        delegate?.swiftyDraw(pencilInteractionIn: self, preference: UIPencilInteraction.preferredTapAction)
     }
 }

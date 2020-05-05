@@ -44,7 +44,7 @@ public class Brush: Codable {
     // MARK: - Static brushes
     
     public static var `default`: Brush {
-        return Brush(color: .black, width: 3, opacity: 1)
+        return Brush(color: .black, width: 2, opacity: 1)
     }
     
     public static var thin: Brush {
@@ -64,7 +64,7 @@ public class Brush: Codable {
     }
     
     public static var eraser: Brush {
-        return Brush(adjustedWidthFactor: 5, blendMode: .clear)
+        return Brush(color: UIColor.white, width: 15, opacity: 1, adjustedWidthFactor: 1, blendMode: .clear)
     }
     
     public static var selection: Brush {
